@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub – Watch</title>
+  <link rel="stylesheet" href="../../bla-bla-anim.css" />
+  <link rel="stylesheet" href="../styles-test.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="branding">
+        <img src="../images/logo.png" alt="MovieHub logo" class="logo" />
+      </div>
+
+    </header>
+
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <!-- Change to /home for server -->
+        <a href="home-test.html">Home</a>
+        <a href="genre-test.html">Genres</a>
+        <a href="forum-test.html">The Hub</a>
+      </div>
+      <div class="search-bar">
+        <form action="search-test.html" method="GET">
+          <input type="text" name="q" placeholder="Search movies..." />
+          <button type="submit" class="search-button" aria-label="Search"></button>
+        </form>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  🌙
+      </button>
+    </nav>
+
+
+    <main class="trailer-layout">
+      <!-- Use dynamic data here -->
+    <div class="video-area">
+        <video class="hero-video" controls poster="https://placehold.co/1280x720?text=Movie+Banner">
+        <source src="trailer.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
+
+        <div class="trailer-description">
+        <h1>Sample Movie Title</h1>
+        <h3>Episode 1</h3>
+        <p>
+            A brief synopsis goes here. This dramatic tale follows a hero through action,
+            heartbreak, and redemption. Coming soon to a cinema near you.
+        </p>
+        </div>
+    </div>
+
+    <aside class="episode-sidebar">
+        <h3>Episodes</h3>
+        <div class="episode-vertical">
+        <div class="episode-card">
+            <img src="https://placehold.co/160x90?text=Ep1" alt="Episode 1">
+            <p>Episode 1</p>
+        </div>
+        <div class="episode-card">
+            <img src="https://placehold.co/160x90?text=Ep2" alt="Episode 2">
+            <p>Episode 2</p>
+        </div>
+        <div class="episode-card">
+            <img src="https://placehold.co/160x90?text=Ep3" alt="Episode 3">
+            <p>Episode 3</p>
+        </div>
+        <div class="episode-card">
+            <img src="https://placehold.co/160x90?text=Ep4" alt="Episode 4">
+            <p>Episode 4</p>
+        </div>
+      </div>
+    </aside>
+    </div>
+    </main>
+
+
+  <footer>
+    <p>&copy; 2025 Bla + Bla Corporation ltd.</p>
+  </footer>
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+  </script>
+</body>
+</html>

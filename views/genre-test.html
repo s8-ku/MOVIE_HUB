@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub – Genres</title>
+  <link rel="stylesheet" href="../styles-test.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="branding">
+        <img src="../images/logo.png" alt="MovieHub logo" class="logo" />
+      </div>
+
+    </header>
+
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <!-- Change to /home for server -->
+        <a href="home-test.html">Home</a>
+        <a href="genre-test.html">Genres</a>
+        <a href="forum-test.html">The Hub</a>
+      </div>
+      <div class="search-bar">
+        <form action="search-test.html" method="GET">
+          <input type="text" name="q" placeholder="Search movies..." />
+          <button type="submit" class="search-button" aria-label="Search"></button>
+        </form>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  🌙
+      </button>
+    </nav>
+
+
+  <main>
+    <h2 class="section-title">Browse by Genre</h2>
+
+<section class="genre-section">
+  <h3>Action</h3>
+  <div class="genre-grid">
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Mad+Max" alt="Mad Max">
+      <p>Mad Max: Fury Road</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=John+Wick" alt="John Wick">
+      <p>John Wick</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Gladiator" alt="Gladiator">
+      <p>Gladiator</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Gladiator" alt="Gladiator">
+      <p>Gladiator</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Gladiator" alt="Gladiator">
+      <p>Gladiator</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Gladiator" alt="Gladiator">
+      <p>Gladiator</p>
+    </a>
+  </div>
+</section>
+
+<section class="genre-section">
+  <h3>Drama</h3>
+  <div class="genre-grid">
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=The+Godfather" alt="The Godfather">
+      <p>The Godfather</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Parasite" alt="Parasite">
+      <p>Parasite</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=La+La+Land" alt="La La Land">
+      <p>La La Land</p>
+    </a>
+  </div>
+</section>
+
+<section class="genre-section">
+  <h3>Science Fiction</h3>
+  <div class="genre-grid">
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Inception" alt="Inception">
+      <p>Inception</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Arrival" alt="Arrival">
+      <p>Arrival</p>
+    </a>
+    <a href="movie-test.html" class="movie-card">
+      <img src="https://placehold.co/150x220?text=Dune" alt="Dune">
+      <p>Dune</p>
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bla + Bla Corporation ltd.</p>
+  </footer>
+  <script>
+        const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+  </script>
+</body>
+</html>

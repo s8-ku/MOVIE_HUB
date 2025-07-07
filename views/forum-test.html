@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub – The Hub</title>
+  <link rel="stylesheet" href="../styles-test.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="branding">
+        <img src="../images/logo.png" alt="MovieHub logo" class="logo" />
+      </div>
+
+    </header>
+
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <!-- Change to /home for server -->
+        <a href="home-test.html">Home</a>
+        <a href="genre-test.html">Genres</a>
+        <a href="forum-test.html">The Hub</a>
+      </div>
+      <div class="search-bar">
+        <form action="search-test.html" method="GET">
+          <input type="text" name="q" placeholder="Search movies..." />
+          <button type="submit" class="search-button" aria-label="Search"></button>
+        </form>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  🌙
+      </button>
+    </nav>
+
+  <main>
+    <!-- Character Slider -->
+    <section>
+      <h2>Love a Character? Find your Crowd.</h2>
+      <!-- Use dynamic data here -->
+      <div class="movie-slider">
+        <div class="movie-card" onclick="selectCharacter('Alice')">
+          <img src="https://placehold.co/150x220?text=Alice" alt="Alice">
+          <p>Alice</p>
+        </div>
+        <div class="movie-card" onclick="selectCharacter('Bob')">
+          <img src="https://placehold.co/150x220?text=Bob" alt="Bob">
+          <p>Bob</p>
+        </div>
+        <div class="movie-card" onclick="selectCharacter('Cleo')">
+          <img src="https://placehold.co/150x220?text=Cleo" alt="Cleo">
+          <p>Cleo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Character Forum (Hidden at first) -->
+    <section id="character-thread">
+      <h2>Forum: <span id="character-name">Character</span></h2>
+      <div class="post-list">
+
+
+<div class="post-card spoiler-thread">
+  <!-- Spoiler preview -->
+  <div class="spoiler-warning">
+    <h4>This thread contains spoilers</h4>
+    <button class="show-spoiler" onclick="toggleSpoiler(this)">Show</button>
+  </div>
+
+  <!-- Revealed spoiler content -->
+  <div class="spoiler-content">
+    <!-- User Info -->
+    <div class="user-info">
+      <img class="avatar" src="https://placehold.co/50x50?text=U1" alt="User 1" onclick="togglePopup(this)">
+      <span class="username">fan101</span>
+
+      <!-- Movie popup -->
+      <div class="movie-popup">
+        <button class="close-btn" onclick="closePopup(this)">×</button>
+        <div class="movie-recs">
+          <div class="rec-card">
+            <img src="https://placehold.co/80x120?text=Inception" alt="Inception">
+            <p>Inception</p>
+          </div>
+          <div class="rec-card">
+            <img src="https://placehold.co/80x120?text=Interstellar" alt="Interstellar">
+            <p>Interstellar</p>
+          </div>
+          <div class="rec-card">
+            <img src="https://placehold.co/80x120?text=Tenet" alt="Tenet">
+            <p>Tenet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Body -->
+    <div class="post-body">
+      <h4>Why Alice is underrated</h4>
+      <p>Her backstory has so much depth, and she carries the emotional weight of the whole subplot without much recognition.</p>
+      <small>Posted on 2025-06-08</small>
+    </div>
+
+    <!-- Replies -->
+    <div class="reply-list">
+      <div class="reply-card">
+        <p>I agree! Her arc in season 2 is incredible.</p>
+        <small>Reply by fan202</small>
+      </div>
+    </div>
+
+    <!-- Reply Form -->
+    <form class="reply-form">
+      <input type="text" placeholder="Reply to this thread..." required>
+      <button type="submit">Reply</button>
+    </form>
+  </div>
+</div>
+
+      <section class="new-post">
+        <h3>Start a New Thread</h3>
+        <form>
+          <input type="text" placeholder="Thread title" required>
+          <textarea placeholder="What's on your mind about this character?" required></textarea>
+          <button type="submit">Post</button>
+        </form>
+      </section>
+    </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bla + Bla Corporation ltd.</p>
+  </footer>
+
+  <script>
+    function togglePopup(imgEl) {
+      const userInfo = imgEl.closest('.user-info');
+
+      // Close all other popups first
+      document.querySelectorAll('.movie-popup').forEach(p => {
+        if (!userInfo.contains(p)) p.style.display = 'none';
+      });
+
+      // Toggle this popup
+      const popup = userInfo.querySelector('.movie-popup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closePopup(btn) {
+      btn.closest('.movie-popup').style.display = 'none';
+    }
+
+    document.addEventListener('click', function (e) {
+      // Close if clicking outside any user-info block
+      if (!e.target.closest('.user-info')) {
+        document.querySelectorAll('.movie-popup').forEach(p => {
+          p.style.display = 'none';
+        });
+      }
+    });
+
+    function selectCharacter(name) {
+      const forum = document.getElementById("character-thread");
+      const titleSpan = document.getElementById("character-name");
+      const threadName = document.getElementById("char-thread-name");
+
+      forum.style.display = "block";
+      titleSpan.innerText = name;
+      threadName.innerText = name;
+    }
+
+    function toggleSpoiler(button) {
+      const content = button.closest('.post-card').querySelector('.spoiler-content');
+      const isVisible = content.style.display === 'block';
+      content.style.display = isVisible ? 'none' : 'block';
+      button.textContent = isVisible ? 'Show' : 'Hide';
+    }
+        const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+
+  </script>
+
+
+
+</body>
+</html>

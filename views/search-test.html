@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub – Search results</title>
+  <link rel="stylesheet" href="../styles-test.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="branding">
+        <img src="../images/logo.png" alt="MovieHub logo" class="logo" />
+      </div>
+
+    </header>
+
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <!-- Change to /home for server -->
+        <a href="home-test.html">Home</a>
+        <a href="genre-test.html">Genres</a>
+        <a href="forum-test.html">The Hub</a>
+      </div>
+      <div class="search-bar">
+        <form action="search-test.html" method="GET">
+          <input type="text" name="q" placeholder="Search movies..." />
+          <button type="submit" class="search-button" aria-label="Search"></button>
+        </form>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  🌙
+      </button>
+    </nav>
+
+  <main>
+    <!-- Use dynamic data here -->
+    <h2>Search Results for: <span id="search-query">"Inception"</span></h2>
+    
+    <div class="search-grid">
+      <a href="movie-test.html" class="search-card">
+        <img src="https://placehold.co/150x220?text=Inception" alt="Inception">
+        <p>Inception</p>
+      </a>
+
+      <a href="movie-test.html" class="search-card">
+        <img src="https://placehold.co/150x220?text=Tenet" alt="Tenet">
+        <p>Tenet</p>
+      </a>
+
+      <a href="movie-test.html" class="search-card">
+        <img src="https://placehold.co/150x220?text=Interstellar" alt="Interstellar">
+        <p>Interstellar</p>
+      </a>
+
+      <a href="movie-test.html" class="search-card">
+        <img src="https://placehold.co/150x220?text=Interstellar" alt="Interstellar">
+        <p>Interstellar</p>
+      </a>
+
+      <a href="movie-test.html" class="search-card">
+        <img src="https://placehold.co/150x220?text=Interstellar" alt="Interstellar">
+        <p>Interstellar</p>
+      </a>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bla + Bla Corporation ltd.</p>
+  </footer>
+  </div>
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+  </script>
+</body>
+</html>

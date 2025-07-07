@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub – Browse Movies</title>
+  <link rel="stylesheet" href="../styles-test.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="branding">
+        <img src="../images/logo.png" alt="MovieHub logo" class="logo" />
+      </div>
+
+    </header>
+
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <!-- Change to /home for server -->
+        <a href="home-test.html">Home</a>
+        <a href="genre-test.html">Genres</a>
+        <a href="forum-test.html">The Hub</a>
+      </div>
+      <div class="search-bar">
+        <form action="search-test.html" method="GET">
+          <input type="text" name="q" placeholder="Search movies..." />
+          <button type="submit" class="search-button" aria-label="Search"></button>
+        </form>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+  🌙
+      </button>
+    </nav>
+
+    <!-- Hero Banner with Overlay -->
+    <section class="hero-banner">
+      <a href="watch-test.html">
+        <img src="https://placehold.co/1200x400?text=Movie+Banner" alt="Movie Poster">
+      </a>
+
+    <div class="synopsis-overlay">
+        <h1>Movie Title</h1>
+        <p>This is a short synopsis about the movie. It appears over the left side of the banner to give a quick summary.</p>
+    </div>
+    </section>
+
+    <!-- Movie Info -->
+     <main>
+  <section class="movie-info">
+    <h2>Movie Info</h2>
+    <table>
+      <tr><th>Director</th><td>Jane Doe</td></tr>
+      <tr><th>Genre</th><td>Drama, Sci-Fi</td></tr>
+      <tr><th>Release Year</th><td>2025</td></tr>
+      <tr><th>Runtime</th><td>2h 12m</td></tr>
+    </table>
+  </section>
+
+  <!-- Cast -->
+  <section class="cast">
+    <h2>Cast</h2>
+    <div class="cast-scroll">
+      <div class="cast-member">
+        <img src="https://placehold.co/100x100?text=Actor+1" alt="Actor 1">
+        <p>Actor 1</p>
+      </div>
+      <div class="cast-member">
+        <img src="https://placehold.co/100x100?text=Actor+2" alt="Actor 2">
+        <p>Actor 2</p>
+      </div>
+      <!-- more cast members -->
+    </div>
+  </section>
+
+  <!-- Star Reviews -->
+  <section class="reviews">
+    <h2>Rate This Movie</h2>
+    <div class="star-rating">
+      <span data-value="1">★</span>
+      <span data-value="2">★</span>
+      <span data-value="3">★</span>
+      <span data-value="4">★</span>
+      <span data-value="5">★</span>
+    </div>
+  </section>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Bla + Bla Corporation ltd.</p>
+    </footer>
+  </div>
+    <script>
+    const starSpans = document.querySelectorAll('.star-rating span');
+
+    starSpans.forEach((star, i) => {
+        // Hover
+        star.addEventListener('mouseover', () => {
+        starSpans.forEach((s, j) => {
+            s.classList.toggle('hovered', j <= i);
+        });
+        });
+
+        // Unhover
+        star.addEventListener('mouseout', () => {
+        starSpans.forEach(s => s.classList.remove('hovered'));
+        });
+
+        // Click to select
+        star.addEventListener('click', () => {
+        starSpans.forEach((s, j) => {
+            s.classList.toggle('selected', j <= i);
+        });
+        // You can access the rating value here with: i + 1
+        console.log("User selected rating:", i + 1);
+        });
+    });
+
+        const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+
+    </script>
+
+
+</body>
+</html>
